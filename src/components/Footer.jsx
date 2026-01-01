@@ -13,7 +13,7 @@ function Footer() {
           {/* Réseaux sociaux */}
           <div className="flex space-x-6">
             <a
-              href="https://github.com/ton-username"
+              href="https://github.com/NANA-MARC"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition"
@@ -21,7 +21,7 @@ function Footer() {
               <FaGithub size={24} />
             </a>
             <a
-              href="https://linkedin.com/in/ton-profil"
+              href="https://www.linkedin.com/in/marc-nana-93349838a/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition"
@@ -29,7 +29,7 @@ function Footer() {
               <FaLinkedin size={24} />
             </a>
             <a
-              href="mailto:ton.email@example.com"
+              href="mailto:nanamarc5547@gmail.com"
               className="text-gray-400 hover:text-white transition"
             >
               <FaEnvelope size={24} />
