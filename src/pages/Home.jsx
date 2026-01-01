@@ -9,7 +9,7 @@ function Home() {
         <div className="max-w-6xl mx-auto px-4 py-20">
           <div className="text-center">
             <h1 className="text-6xl font-bold text-gray-900 mb-6">
-              Salut, je suis <span className="text-blue-600">Marc</span> 👋
+              Salut, je suis <span className="text-blue-600">NANA MARC</span> 👋
             </h1>
             <p className="text-2xl text-gray-600 mb-8">
               Étudiant en informatique (2ème année)

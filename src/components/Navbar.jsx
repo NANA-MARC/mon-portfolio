@@ -15,7 +15,7 @@ function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo / Nom */}
           <Link to="/" className="text-2xl font-bold text-blue-600">
-            Marc
+            NANA MARC
           </Link>
 
           {/* Menu Desktop */}

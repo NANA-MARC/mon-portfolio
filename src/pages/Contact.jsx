@@ -199,12 +199,12 @@ function Contact() {
                 <div>
                   <h3 className="text-lg font-bold text-gray-900">GitHub</h3>
                   <a
-                    href="https://github.com/ton-username"
+                    href="https://github.com/NANA-MARC"
                     target="_blank" // Ouvre dans un nouvel onglet
                     rel="noopener noreferrer" // Sécurité
                     className="text-blue-600 hover:underline"
                   >
-                    github.com/ton-username
+                    https://github.com/NANA-MARC
                   </a>
                 </div>
               </div>
@@ -219,12 +219,12 @@ function Contact() {
                 <div>
                   <h3 className="text-lg font-bold text-gray-900">LinkedIn</h3>
                   <a
-                    href="https://linkedin.com/in/ton-profil"
+                    href="https://www.linkedin.com/in/marc-nana-93349838a"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:underline"
                   >
-                    linkedin.com/in/ton-profil
+                    https://www.linkedin.com/in/marc-nana-93349838a
                   </a>
                 </div>
               </div>

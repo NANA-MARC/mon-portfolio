@@ -9,7 +9,7 @@ function Projects() {
       description:
         "Calculatrice simple en Python avec interface console permettant les opérations de base.",
       technologies: ["Python"],
-      github: "https://github.com/ton-username/calculatrice",
+      github: "https://github.com/NANA-MARC",
       demo: null,
       image:
         "https://via.placeholder.com/400x250/3B82F6/FFFFFF?text=Python+Project",
@@ -20,7 +20,7 @@ function Projects() {
       description:
         "Page d'atterrissage responsive créée avec HTML, CSS et JavaScript vanilla.",
       technologies: ["HTML", "CSS", "JavaScript"],
-      github: "https://github.com/ton-username/landing-page",
+      github: "https://github.com/NANA-MARC",
       demo: "https://demo-example.com",
       image:
         "https://via.placeholder.com/400x250/8B5CF6/FFFFFF?text=Web+Project",
@@ -31,7 +31,7 @@ function Projects() {
       description:
         "Application de gestion de tâches avec ajout, suppression et marquage comme complété.",
       technologies: ["JavaScript", "HTML", "CSS"],
-      github: "https://github.com/ton-username/todo-app",
+      github: "https://github.com/NANA-MARC",
       demo: null,
       image:
         "https://via.placeholder.com/400x250/10B981/FFFFFF?text=JavaScript+App",
@@ -42,7 +42,7 @@ function Projects() {
       description:
         "Implémentation de différents algorithmes de tri (bubble sort, quick sort) en Java.",
       technologies: ["Java"],
-      github: "https://github.com/ton-username/sorting-algorithms",
+      github: "https://github.com/NANA-MARC",
       demo: null,
       image:
         "https://via.placeholder.com/400x250/F59E0B/FFFFFF?text=Java+Algorithm",
@@ -53,7 +53,7 @@ function Projects() {
       description:
         "API REST basique avec Node.js et Express pour gérer des utilisateurs.",
       technologies: ["Node.js", "Express"],
-      github: "https://github.com/ton-username/simple-api",
+      github: "https://github.com/NANA-MARC",
       demo: null,
       image:
         "https://via.placeholder.com/400x250/EF4444/FFFFFF?text=Node.js+API",
@@ -64,8 +64,8 @@ function Projects() {
       description:
         "Ce portfolio créé avec React, Tailwind CSS et déployé sur Vercel.",
       technologies: ["React", "Tailwind CSS", "Vite"],
-      github: "https://github.com/ton-username/portfolio",
-      demo: "https://ton-portfolio.vercel.app",
+      github: "https://github.com/NANA-MARC",
+      demo: "https://mon-portfolio-murex-iota.vercel.app",
       image:
         "https://via.placeholder.com/400x250/6366F1/FFFFFF?text=React+Portfolio",
     },
