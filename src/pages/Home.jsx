@@ -5,7 +5,7 @@ function Home() {
   return (
     <div className="bg-gradient-to-br from-blue-50 to-purple-50">
       {/* ============ SECTION HERO AVEC VIDÉO (RÉDUITE) ============ */}
-      <section className="h-[600px] flex items-center relative overflow-hidden">
+      <section className="h-[500px] flex items-center relative overflow-hidden">
         {/* VIDÉO DE FOND (visible seulement sur desktop) */}
         <video
           autoPlay
