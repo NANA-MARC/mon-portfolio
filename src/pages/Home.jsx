@@ -4,34 +4,33 @@ import { FaCode, FaLaptopCode, FaRocket } from "react-icons/fa";
 function Home() {
   return (
     <div className="bg-gradient-to-br from-blue-50 to-purple-50">
-      {/* ============ SECTION HERO AVEC VIDÉO ============ */}
+      {/* ============ SECTION HERO AVEC VIDÉO (RÉDUITE) ============ */}
       <section className="h-[500px] flex items-center relative overflow-hidden">
-        {/* VIDÉO DE FOND */}
+        {/* FOND DE SECOURS POUR MOBILE (remplace la vidéo) */}
+        <div className="md:hidden absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-600"></div>
+
+        {/* VIDÉO DE FOND (cachée sur mobile) */}
         <video
-          autoPlay // Lecture automatique
-          loop // Boucle infinie
-          muted // Sans son (obligatoire pour autoplay)
-          playsInline // Pour mobile
-          className="absolute md:block inset-0 w-full h-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="hidden md:block absolute inset-0 w-full h-full object-cover"
         >
-          {/* Source de la vidéo - Remplace par ton chemin */}
+          {/* Remplace par l'URL de ta vidéo */}
           <source
             src="https://res.cloudinary.com/deujfqajl/video/upload/v1767390012/18069232-uhd_3840_2160_24fps_gi7ebl.mp4"
             type="video/mp4"
           />
-          {/* Message de secours si la vidéo ne charge pas */}
           Votre navigateur ne supporte pas la vidéo.
         </video>
 
         {/* OVERLAY (couche sombre semi-transparente) */}
-
-        {/* Pour rendre le texte lisible sur la vidéo */}
         <div className="absolute inset-0 bg-black bg-opacity-60"></div>
 
-        {/* CONTENU (texte au-dessus de la vidéo) */}
+        {/* CONTENU (texte au-dessus) */}
         <div className="relative z-10 max-w-6xl mx-auto px-4 py-20 w-full">
           <div className="text-center">
-            {/* Texte en blanc pour contraster avec la vidéo */}
             <h1 className="text-6xl font-bold text-white mb-6">
               Salut, je suis <span className="text-blue-400">Marc</span> 👋
             </h1>
@@ -61,7 +60,7 @@ function Home() {
         </div>
       </section>
 
-      {/* Section Compétences rapides */}
+      {/* ============ SECTION COMPÉTENCES RAPIDES ============ */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">
