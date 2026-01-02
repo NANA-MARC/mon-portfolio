@@ -4,17 +4,40 @@ import { FaCode, FaLaptopCode, FaRocket } from "react-icons/fa";
 function Home() {
   return (
     <div className="bg-gradient-to-br from-blue-50 to-purple-50">
-      {/* Section Hero */}
-      <section className="min-h-screen flex items-center">
-        <div className="max-w-6xl mx-auto px-4 py-20">
+      {/* ============ SECTION HERO AVEC VIDÉO ============ */}
+      <section className="min-h-screen flex items-center relative overflow-hidden">
+        {/* VIDÉO DE FOND */}
+        <video
+          autoPlay // Lecture automatique
+          loop // Boucle infinie
+          muted // Sans son (obligatoire pour autoplay)
+          playsInline // Pour mobile
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          {/* Source de la vidéo - Remplace par ton chemin */}
+          <source
+            src="https://res.cloudinary.com/deujfqajl/video/upload/v1767390012/18069232-uhd_3840_2160_24fps_gi7ebl.mp4"
+            type="video/mp4"
+          />
+          {/* Message de secours si la vidéo ne charge pas */}
+          Votre navigateur ne supporte pas la vidéo.
+        </video>
+
+        {/* OVERLAY (couche sombre semi-transparente) */}
+        {/* Pour rendre le texte lisible sur la vidéo */}
+        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+
+        {/* CONTENU (texte au-dessus de la vidéo) */}
+        <div className="relative z-10 max-w-6xl mx-auto px-4 py-20 w-full">
           <div className="text-center">
-            <h1 className="text-6xl font-bold text-gray-900 mb-6">
-              Salut, je suis <span className="text-blue-600">NANA MARC</span> 👋
+            {/* Texte en blanc pour contraster avec la vidéo */}
+            <h1 className="text-6xl font-bold text-white mb-6">
+              Salut, je suis <span className="text-blue-400">Marc</span> 👋
             </h1>
-            <p className="text-2xl text-gray-600 mb-8">
+            <p className="text-2xl text-gray-200 mb-8">
               Étudiant en informatique (2ème année)
             </p>
-            <p className="text-xl text-gray-500 mb-12 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
               Passionné par le développement web et la création d'applications.
               Je transforme des idées en code fonctionnel.
             </p>
@@ -28,7 +51,7 @@ function Home() {
               </Link>
               <Link
                 to="/contact"
-                className="bg-white text-blue-600 px-8 py-4 rounded-lg font-medium border-2 border-blue-600 hover:bg-blue-50 transition"
+                className="bg-white text-blue-600 px-8 py-4 rounded-lg font-medium border-2 border-white hover:bg-gray-100 transition"
               >
                 Me contacter
               </Link>
