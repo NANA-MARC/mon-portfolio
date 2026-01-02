@@ -5,19 +5,16 @@ function Home() {
   return (
     <div className="bg-gradient-to-br from-blue-50 to-purple-50">
       {/* ============ SECTION HERO AVEC VIDÉO (RÉDUITE) ============ */}
-      <section className="h-[500px] flex items-center relative overflow-hidden">
-        {/* FOND DE SECOURS POUR MOBILE (remplace la vidéo) */}
-        <div className="md:hidden absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-600"></div>
-
-        {/* VIDÉO DE FOND (cachée sur mobile) */}
+      <section className="h-[600px] flex items-center relative overflow-hidden">
+        {/* VIDÉO DE FOND (visible seulement sur desktop) */}
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="hidden md:block absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
         >
-          {/* Remplace par l'URL de ta vidéo */}
+          {/* Remplace par l'URL de ta vidéo Cloudinary */}
           <source
             src="https://res.cloudinary.com/deujfqajl/video/upload/v1767390012/18069232-uhd_3840_2160_24fps_gi7ebl.mp4"
             type="video/mp4"
@@ -25,8 +22,8 @@ function Home() {
           Votre navigateur ne supporte pas la vidéo.
         </video>
 
-        {/* OVERLAY (couche sombre semi-transparente) */}
-        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+        {/* OVERLAY (couche sombre) - sur la vidéo */}
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
         {/* CONTENU (texte au-dessus) */}
         <div className="relative z-10 max-w-6xl mx-auto px-4 py-20 w-full">
@@ -42,7 +39,7 @@ function Home() {
               Je transforme des idées en code fonctionnel.
             </p>
 
-            <div className="flex justify-center gap-4">
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
                 to="/projects"
                 className="bg-blue-600 text-white px-8 py-4 rounded-lg font-medium hover:bg-blue-700 transition"
