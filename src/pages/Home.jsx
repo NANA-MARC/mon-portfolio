@@ -5,14 +5,14 @@ function Home() {
   return (
     <div className="bg-gradient-to-br from-blue-50 to-purple-50">
       {/* ============ SECTION HERO AVEC VIDÉO ============ */}
-      <section className="min-h-screen flex items-center relative overflow-hidden">
+      <section className="h-[500px] flex items-center relative overflow-hidden">
         {/* VIDÉO DE FOND */}
         <video
           autoPlay // Lecture automatique
           loop // Boucle infinie
           muted // Sans son (obligatoire pour autoplay)
           playsInline // Pour mobile
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute md:block inset-0 w-full h-full object-cover"
         >
           {/* Source de la vidéo - Remplace par ton chemin */}
           <source
@@ -24,6 +24,7 @@ function Home() {
         </video>
 
         {/* OVERLAY (couche sombre semi-transparente) */}
+
         {/* Pour rendre le texte lisible sur la vidéo */}
         <div className="absolute inset-0 bg-black bg-opacity-60"></div>
 
