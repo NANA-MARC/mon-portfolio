@@ -39,10 +39,12 @@ function About() {
 
             {/* Paragraphes de texte */}
             <p className="text-gray-700 leading-relaxed mb-4">
-              Je m'appelle <span className="font-bold text-blue-600">Marc</span>
-              , étudiant en 2ème année d'informatique à l'université. Passionné
-              par la technologie depuis mon plus jeune âge, j'ai décidé d'en
-              faire mon métier.
+              Je m'appelle{" "}
+              <span className="font-bold text-blue-600">NANA Marc</span>,
+              étudiant en 2ème année d'informatique à Burkina Institut of
+              Technology (<span className="font-bold text-blue-600">BIT</span>).
+              Passionné par la technologie depuis mon plus jeune âge, j'ai
+              décidé d'en faire mon métier.
             </p>
 
             <p className="text-gray-700 leading-relaxed">
