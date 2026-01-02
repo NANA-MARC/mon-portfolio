@@ -19,7 +19,7 @@ function Home() {
         >
           {/* Remplace par l'URL de ta vidéo */}
           <source
-            src="https://res.cloudinary.com/deujfqajl/video/upload/v1767390012/18069232-uhd_3840_2160_24fps_gi7ebl.mp4"
+            src="https://res.cloudinary.com/deujfqajl/video/upload/v1767393893/18069232-uhd_3840_2160_24fps_1_1_jzxl2k.mp4"
             type="video/mp4"
           />
           Votre navigateur ne supporte pas la vidéo.
