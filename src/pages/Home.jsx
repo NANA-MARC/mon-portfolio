@@ -5,16 +5,19 @@ function Home() {
   return (
     <div className="bg-gradient-to-br from-blue-50 to-purple-50">
       {/* ============ SECTION HERO AVEC VIDÉO (RÉDUITE) ============ */}
-      <section className="h-[500px] flex items-center relative overflow-hidden">
-        {/* VIDÉO DE FOND (visible seulement sur desktop) */}
+      {/* ============ SECTION HERO AVEC VIDÉO ============ */}
+      <section className="h-[600px] md:h-[700px] flex items-center relative overflow-hidden">
+        {/* VIDÉO DE FOND (fonctionne sur mobile et desktop) */}
         <video
           autoPlay
           loop
           muted
           playsInline
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: "center" }}
         >
-          {/* Remplace par l'URL de ta vidéo Cloudinary */}
+          {/* Remplace par l'URL de ta vidéo */}
           <source
             src="https://res.cloudinary.com/deujfqajl/video/upload/v1767390012/18069232-uhd_3840_2160_24fps_gi7ebl.mp4"
             type="video/mp4"
@@ -22,33 +25,33 @@ function Home() {
           Votre navigateur ne supporte pas la vidéo.
         </video>
 
-        {/* OVERLAY (couche sombre) - sur la vidéo */}
+        {/* OVERLAY */}
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
-        {/* CONTENU (texte au-dessus) */}
-        <div className="relative z-10 max-w-6xl mx-auto px-4 py-20 w-full">
+        {/* CONTENU */}
+        <div className="relative z-10 max-w-6xl mx-auto px-4 py-10 w-full">
           <div className="text-center">
-            <h1 className="text-6xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 md:mb-6">
               Salut, je suis <span className="text-blue-400">Marc</span> 👋
             </h1>
-            <p className="text-2xl text-gray-200 mb-8">
+            <p className="text-xl md:text-2xl text-gray-200 mb-6 md:mb-8">
               Étudiant en informatique (2ème année)
             </p>
-            <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+            <p className="text-base md:text-xl text-gray-300 mb-8 md:mb-12 max-w-2xl mx-auto px-4">
               Passionné par le développement web et la création d'applications.
               Je transforme des idées en code fonctionnel.
             </p>
 
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <div className="flex flex-col sm:flex-row justify-center gap-4 px-4">
               <Link
                 to="/projects"
-                className="bg-blue-600 text-white px-8 py-4 rounded-lg font-medium hover:bg-blue-700 transition"
+                className="bg-blue-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-medium hover:bg-blue-700 transition"
               >
                 Voir mes projets
               </Link>
               <Link
                 to="/contact"
-                className="bg-white text-blue-600 px-8 py-4 rounded-lg font-medium border-2 border-white hover:bg-gray-100 transition"
+                className="bg-white text-blue-600 px-6 md:px-8 py-3 md:py-4 rounded-lg font-medium border-2 border-white hover:bg-gray-100 transition"
               >
                 Me contacter
               </Link>
@@ -56,7 +59,6 @@ function Home() {
           </div>
         </div>
       </section>
-
       {/* ============ SECTION COMPÉTENCES RAPIDES ============ */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
