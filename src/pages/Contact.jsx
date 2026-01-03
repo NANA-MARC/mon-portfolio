@@ -41,7 +41,7 @@ function Contact() {
     // ⚠️ REMPLACE CES VALEURS PAR LES TIENNES ⚠️
     const serviceID = "service_7xm95jb"; // Ex: service_abc123
     const templateID = "template_vin13bm"; // Ex: template_xyz789
-    const publicKey = "TaluCdeV5OaSbdBG9c"; // Ex: ABCdef123GHI456
+    const publicKey = "aluCdeV5OaSbdBG9c"; // Ex: ABCdef123GHI456
 
     // Prépare les données pour EmailJS
     const templateParams = {
