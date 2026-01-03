@@ -26,7 +26,8 @@ function Home() {
         >
           {/* TON URL CLOUDINARY ICI */}
           <source
-            src="https://res.cloudinary.com/deujfqajl/video/upload/v1767390012/18069232-uhd_3840_2160_24fps_gi7ebl.mp4"
+            src="https://res.cloudinary.com/demo/video/upload/dog.mp4"
+            type="video/mp4"
             type="video/mp4"
           />
           Votre navigateur ne supporte pas la vidéo.
