@@ -1,6 +1,4 @@
-// Import de useState pour gérer l'état du formulaire
 import { useState } from "react";
-// Import des icônes
 import {
   FaEnvelope,
   FaGithub,
@@ -8,63 +6,87 @@ import {
   FaMapMarkerAlt,
   FaPaperPlane,
 } from "react-icons/fa";
+import emailjs from "@emailjs/browser";
 
 function Contact() {
-  // ============ GESTION DE L'ÉTAT DU FORMULAIRE ============
-
-  // State pour stocker les données du formulaire
-  // formData est un objet avec 3 propriétés : name, email, message
+  // État du formulaire
   const [formData, setFormData] = useState({
-    name: "", // Nom de l'utilisateur
-    email: "", // Email de l'utilisateur
-    message: "", // Message de l'utilisateur
+    name: "",
+    email: "",
+    message: "",
   });
 
-  // State pour afficher un message de succès après l'envoi
-  const [submitted, setSubmitted] = useState(false);
+  // État pour les messages (succès, erreur, chargement)
+  const [status, setStatus] = useState({
+    submitted: false,
+    error: false,
+    loading: false,
+  });
 
-  // ============ FONCTION POUR GÉRER LES CHANGEMENTS DANS LES CHAMPS ============
-
-  // Cette fonction est appelée à chaque fois qu'on tape dans un champ
+  // Gestion des changements dans les champs
   const handleChange = (e) => {
-    // e.target = l'élément HTML qui a déclenché l'événement (input ou textarea)
-    // e.target.name = le nom du champ (ex: "name", "email", "message")
-    // e.target.value = la valeur tapée par l'utilisateur
-
     setFormData({
-      ...formData, // Copie toutes les valeurs existantes de formData
-      [e.target.name]: e.target.value, // Met à jour seulement le champ modifié
+      ...formData,
+      [e.target.name]: e.target.value,
     });
-
-    // Exemple : Si on tape "Marc" dans le champ name
-    // formData devient : { name: 'Marc', email: '', message: '' }
   };
 
-  // ============ FONCTION POUR GÉRER LA SOUMISSION DU FORMULAIRE ============
-
+  // Gestion de la soumission du formulaire
   const handleSubmit = (e) => {
-    // e.preventDefault() empêche le rechargement de la page (comportement par défaut)
     e.preventDefault();
 
-    // Ici, normalement tu enverrais les données à un serveur
-    // Pour l'instant, on affiche juste un message de succès
-    console.log("Données du formulaire:", formData);
+    // Active l'état de chargement
+    setStatus({ submitted: false, error: false, loading: true });
 
-    // Affiche le message de succès
-    setSubmitted(true);
+    // ⚠️ REMPLACE CES VALEURS PAR LES TIENNES ⚠️
+    const serviceID = "service_7xm95jb"; // Ex: service_abc123
+    const templateID = "template_vin13bm"; // Ex: template_xyz789
+    const publicKey = "TaluCdeV5OaSbdBG9c"; // Ex: ABCdef123GHI456
 
-    // Réinitialise le formulaire après 3 secondes
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: "", email: "", message: "" });
-    }, 3000);
+    // Prépare les données pour EmailJS
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      message: formData.message,
+      to_email: "nanamarc5547@gmail.com", // ⚠️ TON EMAIL ICI
+    };
+
+    // Envoi de l'email via EmailJS
+    emailjs
+      .send(serviceID, templateID, templateParams, publicKey)
+      .then((response) => {
+        console.log(
+          "Email envoyé avec succès!",
+          response.status,
+          response.text
+        );
+
+        // Affiche le message de succès
+        setStatus({ submitted: true, error: false, loading: false });
+
+        // Réinitialise le formulaire après 3 secondes
+        setTimeout(() => {
+          setStatus({ submitted: false, error: false, loading: false });
+          setFormData({ name: "", email: "", message: "" });
+        }, 3000);
+      })
+      .catch((error) => {
+        console.error("Erreur lors de l'envoi:", error);
+
+        // Affiche le message d'erreur
+        setStatus({ submitted: false, error: true, loading: false });
+
+        // Cache le message d'erreur après 5 secondes
+        setTimeout(() => {
+          setStatus({ submitted: false, error: false, loading: false });
+        }, 5000);
+      });
   };
 
   return (
-    // Conteneur principal
     <div className="min-h-screen bg-gray-50 py-20">
       <div className="max-w-6xl mx-auto px-4">
-        {/* ============ EN-TÊTE ============ */}
+        {/* EN-TÊTE */}
         <div className="text-center mb-16">
           <h1 className="text-5xl font-bold text-gray-900 mb-4">
             Me Contacter
@@ -74,48 +96,59 @@ function Contact() {
           </p>
         </div>
 
-        {/* ============ GRILLE : FORMULAIRE + INFORMATIONS ============ */}
-        {/* 1 colonne sur mobile, 2 colonnes sur écrans larges */}
+        {/* GRILLE : FORMULAIRE + INFORMATIONS */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* ========== COLONNE GAUCHE : FORMULAIRE ========== */}
+          {/* FORMULAIRE */}
           <div className="bg-white rounded-xl shadow-lg p-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">
               Envoyez-moi un message
             </h2>
 
-            {/* Message de succès (affiché seulement si submitted = true) */}
-            {submitted && (
-              <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
-                ✅ Message envoyé avec succès ! Je vous répondrai bientôt.
+            {/* MESSAGE DE SUCCÈS */}
+            {status.submitted && (
+              <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6 flex items-center gap-2">
+                <span className="text-xl">✅</span>
+                <span>
+                  Message envoyé avec succès ! Je vous répondrai bientôt.
+                </span>
+              </div>
+            )}
+
+            {/* MESSAGE D'ERREUR */}
+            {status.error && (
+              <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6 flex items-center gap-2">
+                <span className="text-xl">❌</span>
+                <span>
+                  Une erreur est survenue. Réessayez ou contactez-moi
+                  directement par email.
+                </span>
               </div>
             )}
 
             {/* FORMULAIRE */}
-            {/* onSubmit appelle handleSubmit quand on clique sur "Envoyer" */}
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* ===== CHAMP NOM ===== */}
+              {/* CHAMP NOM */}
               <div>
-                {/* Label (étiquette) du champ */}
                 <label
                   htmlFor="name"
                   className="block text-gray-700 font-medium mb-2"
                 >
                   Nom complet
                 </label>
-                {/* Input pour le nom */}
                 <input
-                  type="text" // Type texte
-                  id="name" // ID pour le lier au label
-                  name="name" // Nom utilisé dans handleChange
-                  value={formData.name} // Valeur contrôlée par React (state)
-                  onChange={handleChange} // Fonction appelée à chaque modification
-                  required // Champ obligatoire
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  disabled={status.loading}
                   placeholder="Votre nom"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100"
                 />
               </div>
 
-              {/* ===== CHAMP EMAIL ===== */}
+              {/* CHAMP EMAIL */}
               <div>
                 <label
                   htmlFor="email"
@@ -124,18 +157,19 @@ function Contact() {
                   Adresse email
                 </label>
                 <input
-                  type="email" // Type email (validation automatique)
+                  type="email"
                   id="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
                   required
+                  disabled={status.loading}
                   placeholder="votre.email@example.com"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100"
                 />
               </div>
 
-              {/* ===== CHAMP MESSAGE ===== */}
+              {/* CHAMP MESSAGE */}
               <div>
                 <label
                   htmlFor="message"
@@ -143,48 +177,55 @@ function Contact() {
                 >
                   Votre message
                 </label>
-                {/* Textarea pour un texte multiligne */}
                 <textarea
                   id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows="5" // Hauteur de 5 lignes
+                  disabled={status.loading}
+                  rows="5"
                   placeholder="Écrivez votre message ici..."
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none disabled:bg-gray-100"
                 ></textarea>
               </div>
 
-              {/* ===== BOUTON ENVOYER ===== */}
+              {/* BOUTON ENVOYER */}
               <button
-                type="submit" // Type submit pour soumettre le formulaire
-                className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition flex items-center justify-center gap-2"
+                type="submit"
+                disabled={status.loading}
+                className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition flex items-center justify-center gap-2 disabled:bg-blue-300 disabled:cursor-not-allowed"
               >
-                <FaPaperPlane />
-                Envoyer le message
+                {status.loading ? (
+                  <>
+                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                    Envoi en cours...
+                  </>
+                ) : (
+                  <>
+                    <FaPaperPlane />
+                    Envoyer le message
+                  </>
+                )}
               </button>
             </form>
           </div>
 
-          {/* ========== COLONNE DROITE : INFORMATIONS DE CONTACT ========== */}
+          {/* INFORMATIONS DE CONTACT */}
           <div className="space-y-6">
             {/* Carte : Email */}
             <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
-              {/* Flex pour aligner icône + texte horizontalement */}
               <div className="flex items-center gap-4">
-                {/* Icône dans un cercle bleu */}
                 <div className="bg-blue-100 p-4 rounded-full">
                   <FaEnvelope className="text-blue-600 text-2xl" />
                 </div>
-                {/* Texte */}
                 <div>
                   <h3 className="text-lg font-bold text-gray-900">Email</h3>
                   <a
-                    href="mailto:votre.email@example.com"
+                    href="mailto:ton.email@example.com"
                     className="text-blue-600 hover:underline"
                   >
-                    votre.email@example.com
+                    ton.email@example.com
                   </a>
                 </div>
               </div>
@@ -199,12 +240,12 @@ function Contact() {
                 <div>
                   <h3 className="text-lg font-bold text-gray-900">GitHub</h3>
                   <a
-                    href="https://github.com/NANA-MARC"
-                    target="_blank" // Ouvre dans un nouvel onglet
-                    rel="noopener noreferrer" // Sécurité
+                    href="https://github.com/ton-username"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-blue-600 hover:underline"
                   >
-                    https://github.com/NANA-MARC
+                    github.com/ton-username
                   </a>
                 </div>
               </div>
@@ -219,12 +260,12 @@ function Contact() {
                 <div>
                   <h3 className="text-lg font-bold text-gray-900">LinkedIn</h3>
                   <a
-                    href="https://www.linkedin.com/in/marc-nana-93349838a"
+                    href="https://linkedin.com/in/ton-profil"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:underline"
                   >
-                    https://www.linkedin.com/in/marc-nana-93349838a
+                    linkedin.com/in/ton-profil
                   </a>
                 </div>
               </div>
