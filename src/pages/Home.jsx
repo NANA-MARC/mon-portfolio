@@ -14,23 +14,14 @@ function Home() {
           muted
           playsInline
           preload="auto"
-          controls={false}
           webkit-playsinline="true"
           x5-playsinline="true"
           className="absolute inset-0 w-full h-full object-cover"
-          onLoadedMetadata={(e) => {
-            e.target
-              .play()
-              .catch((err) => console.log("Autoplay bloqué:", err));
-          }}
         >
-          {/* TON URL CLOUDINARY ICI */}
           <source
-            src="https://res.cloudinary.com/demo/video/upload/dog.mp4"
-            type="video/mp4"
+            src="https://res.cloudinary.com/deujfqajl/video/upload/18069232-uhd_3840_2160_24fps_1_1_jzxl2k.mp4"
             type="video/mp4"
           />
-          Votre navigateur ne supporte pas la vidéo.
         </video>
 
         {/* OVERLAY */}
