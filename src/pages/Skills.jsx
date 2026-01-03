@@ -1,4 +1,19 @@
-import { FaCode, FaServer, FaTools, FaDatabase } from "react-icons/fa";
+import {
+  FaCode,
+  FaServer,
+  FaTools,
+  FaDatabase,
+  FaMoneyBillWave,
+  FaWallet,
+  FaCoins,
+  FaCreditCard,
+  FaChartLine,
+  FaLaptopCode,
+  FaPalette,
+  FaPaintBrush,
+  FaPencilRuler,
+} from "react-icons/fa";
+import { FaIndianRupeeSign } from "react-icons/fa6";
 
 function Skills() {
   // Compétences par catégorie
@@ -21,6 +36,12 @@ function Skills() {
       { name: "Java", level: 55 },
       { name: "Python", level: 70 },
       { name: "JavaScript", level: 65 },
+    ],
+    design: [
+      { name: "Figma", level: 45 },
+      { name: "Excalidraw", level: 70 },
+      { name: "Penpot ", level: 40 },
+      { name: "Canva ", level: 60 },
     ],
     tools: [
       { name: "Git/GitHub", level: 60 },
@@ -73,7 +94,6 @@ function Skills() {
               <SkillBar key={index} name={skill.name} level={skill.level} />
             ))}
           </div>
-
           {/* Backend */}
           <div className="bg-white rounded-xl shadow-md p-8">
             <div className="flex items-center gap-3 mb-6">
@@ -86,7 +106,6 @@ function Skills() {
               <SkillBar key={index} name={skill.name} level={skill.level} />
             ))}
           </div>
-
           {/* Langages de programmation */}
           <div className="bg-white rounded-xl shadow-md p-8">
             <div className="flex items-center gap-3 mb-6">
@@ -98,8 +117,19 @@ function Skills() {
             {skillsData.languages.map((skill, index) => (
               <SkillBar key={index} name={skill.name} level={skill.level} />
             ))}
+          </div>{" "}
+          {/* les Design */}
+          <div className="bg-white rounded-xl shadow-md p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="bg-green-100 p-3 rounded-lg">
+                <FaPalette className="text-green-600 text-2xl" />
+              </div>
+              <h2 className="text-2xl font-bold text-gray-900">Design</h2>
+            </div>
+            {skillsData.design.map((skill, index) => (
+              <SkillBar key={index} name={skill.name} level={skill.level} />
+            ))}
           </div>
-
           {/* Outils */}
           <div className="bg-white rounded-xl shadow-md p-8">
             <div className="flex items-center gap-3 mb-6">

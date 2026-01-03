@@ -74,7 +74,7 @@ function About() {
                 {/* Puce personnalisée (point bleu) */}
                 <span className="bg-blue-500 w-2 h-2 rounded-full mt-2 flex-shrink-0"></span>
                 <span className="text-gray-700">
-                  <strong>2023-Présent :</strong> 2ème année de Licence en
+                  <strong>2025-2026-Présent :</strong> 2ème année de Licence en
                   Informatique
                 </span>
               </li>
@@ -82,16 +82,8 @@ function About() {
               <li className="flex items-start gap-3">
                 <span className="bg-blue-500 w-2 h-2 rounded-full mt-2 flex-shrink-0"></span>
                 <span className="text-gray-700">
-                  <strong>2022-2023 :</strong> 1ère année - Découverte des
-                  langages C, Python, Java
-                </span>
-              </li>
-
-              <li className="flex items-start gap-3">
-                <span className="bg-blue-500 w-2 h-2 rounded-full mt-2 flex-shrink-0"></span>
-                <span className="text-gray-700">
-                  <strong>2024 :</strong> Début de l'apprentissage du
-                  développement web (HTML/CSS/JS, React)
+                  <strong>2024-2025 :</strong> 1ère année - Découverte des
+                  langages C, Python et du Web(HTML/CSS/JS)
                 </span>
               </li>
             </ul>

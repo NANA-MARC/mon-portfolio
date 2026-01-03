@@ -6,7 +6,7 @@ function Home() {
     <div className="bg-gradient-to-br from-blue-50 to-purple-50">
       {/* ============ SECTION HERO AVEC VIDÉO (RÉDUITE) ============ */}
       {/* ============ SECTION HERO AVEC VIDÉO ============ */}
-      <section className="h-[600px] md:h-[700px] flex items-center relative overflow-hidden">
+      <section className="h-[600px] md:h-[500px] flex items-center relative overflow-hidden">
         {/* VIDÉO DE FOND (fonctionne sur mobile et desktop) */}
         <video
           autoPlay
@@ -14,12 +14,19 @@ function Home() {
           muted
           playsInline
           preload="auto"
+          controls={false}
+          webkit-playsinline="true"
+          x5-playsinline="true"
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "center" }}
+          onLoadedMetadata={(e) => {
+            e.target
+              .play()
+              .catch((err) => console.log("Autoplay bloqué:", err));
+          }}
         >
-          {/* Remplace par l'URL de ta vidéo */}
+          {/* TON URL CLOUDINARY ICI */}
           <source
-            src="https://res.cloudinary.com/deujfqajl/video/upload/v1767393893/18069232-uhd_3840_2160_24fps_1_1_jzxl2k.mp4"
+            src="https://res.cloudinary.com/deujfqajl/video/upload/v1767390012/18069232-uhd_3840_2160_24fps_gi7ebl.mp4"
             type="video/mp4"
           />
           Votre navigateur ne supporte pas la vidéo.
